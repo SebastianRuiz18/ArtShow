@@ -164,10 +164,8 @@ function rebuildSwiper(initialIndex = 0) {
         swiper.destroy(true, true);
     }
 
-    // 1. Limpiar DOM
     swiperWrapper.innerHTML = '';
 
-    // 2. Insertar Slides con el idioma actual
     slidesData.forEach(slide => {
         const slideDiv = document.createElement('div');
         slideDiv.className = 'swiper-slide';
@@ -175,7 +173,6 @@ function rebuildSwiper(initialIndex = 0) {
         swiperWrapper.appendChild(slideDiv);
     });
 
-    // 3. Inicializar Swiper Nuevo
     swiper = new Swiper(".text-swiper", {
         loop: false, slidesPerView: "auto", centeredSlides: true, speed: 600, grabCursor: true, initialSlide: initialIndex,
         mousewheel: true, keyboard: { enabled: true },
@@ -187,20 +184,16 @@ function rebuildSwiper(initialIndex = 0) {
     });
 }
 
-// *** AQUÍ ESTÁ LA SOLUCIÓN ***
-// Esperamos a que cargue TODA la ventana (fuentes, imágenes, estilos)
+// CARGA INICIAL ANTI-BUG
 window.addEventListener('load', () => {
-    // 1. Construimos el swiper
     rebuildSwiper(0);
-    // 2. Esperamos un pelín más para asegurar renderizado
     setTimeout(() => {
-        // 3. Hacemos visible el contenido (Fade In)
         mainHero.classList.remove('loading-state');
         mainHero.classList.add('loaded-visible');
     }, 100);
 });
 
-// LOGICA CAMBIO DE IDIOMA
+// CAMBIO DE IDIOMA
 langOpts.forEach(opt => {
     opt.addEventListener('click', () => {
         const selectedLang = opt.getAttribute('data-lang');
@@ -213,11 +206,8 @@ langOpts.forEach(opt => {
 
 function updateLanguage() {
     const t = translations[currentLang];
-    
-    // 1. Guardar donde estamos
     const currentIndex = swiper ? swiper.activeIndex : 0;
 
-    // 2. Textos UI Estática
     document.getElementById('nav-menu-text').textContent = t.menu;
     document.getElementById('nav-reserve-text').textContent = t.reserve;
     document.getElementById('story-label').textContent = t.story;
@@ -228,20 +218,17 @@ function updateLanguage() {
     const isExpanded = document.getElementById('details-content-box').classList.contains('expanded');
     document.getElementById('detail-toggle-text').textContent = isExpanded ? t.close : t.details;
 
-    // 3. Clases activas
     langOpts.forEach(o => {
         if(o.getAttribute('data-lang') === currentLang) o.classList.add('active-lang');
         else o.classList.remove('active-lang');
     });
 
-    // 4. Menu Overlay
     const menuLinks = document.querySelectorAll('.menu-items .menu-link');
     menuLinks.forEach(link => {
         const idx = link.getAttribute('data-index');
         if(slidesData[idx]) link.textContent = slidesData[idx].title[currentLang];
     });
 
-    // 5. Reconstruir Slider (Ocultar -> Reconstruir -> Mostrar)
     const swiperContainer = document.querySelector('.text-swiper');
     swiperContainer.classList.add('opacity-zero');
     
@@ -250,7 +237,6 @@ function updateLanguage() {
         swiperContainer.classList.remove('opacity-zero');
     }, 200);
 
-    // 6. Actualizar detalles si están abiertos
     if (document.body.classList.contains('details-mode')) {
         openDetailsMode(currentIndex);
     }
@@ -269,6 +255,17 @@ function updateContent(index) {
         subtitleEl.style.opacity = '1';
         ctaBtn.style.opacity = '1';
     }, 300);
+}
+
+// BOTON RESERVE (HEADER)
+const reserveBtn = document.getElementById('nav-reserve-text');
+if(reserveBtn) {
+    reserveBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Index 5 es el RSVP según nuestro slidesData
+        swiper.slideTo(5);
+        openDetailsMode(5);
+    });
 }
 
 // LOGICA GENERAL
