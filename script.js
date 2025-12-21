@@ -155,6 +155,7 @@ const subtitleEl = document.getElementById('subtitle');
 const ctaBtn = document.getElementById('cta-btn');
 const langOpts = document.querySelectorAll('.lang-opt');
 const swiperWrapper = document.getElementById('dynamic-swiper-wrapper');
+const mainHero = document.getElementById('main-hero');
 let swiper = null;
 
 // FUNCION RE-CONSTRUIR SWIPER
@@ -186,8 +187,18 @@ function rebuildSwiper(initialIndex = 0) {
     });
 }
 
-// INICIO (Default)
-rebuildSwiper(0);
+// *** AQUÍ ESTÁ LA SOLUCIÓN ***
+// Esperamos a que cargue TODA la ventana (fuentes, imágenes, estilos)
+window.addEventListener('load', () => {
+    // 1. Construimos el swiper
+    rebuildSwiper(0);
+    // 2. Esperamos un pelín más para asegurar renderizado
+    setTimeout(() => {
+        // 3. Hacemos visible el contenido (Fade In)
+        mainHero.classList.remove('loading-state');
+        mainHero.classList.add('loaded-visible');
+    }, 100);
+});
 
 // LOGICA CAMBIO DE IDIOMA
 langOpts.forEach(opt => {
@@ -230,9 +241,14 @@ function updateLanguage() {
         if(slidesData[idx]) link.textContent = slidesData[idx].title[currentLang];
     });
 
-    // 5. *** LA MAGIA: RECONSTRUIR EL SLIDER ***
-    // Esto evita que los textos se empalmen. Los borra y los vuelve a pintar limpios.
-    rebuildSwiper(currentIndex);
+    // 5. Reconstruir Slider (Ocultar -> Reconstruir -> Mostrar)
+    const swiperContainer = document.querySelector('.text-swiper');
+    swiperContainer.classList.add('opacity-zero');
+    
+    setTimeout(() => {
+        rebuildSwiper(currentIndex);
+        swiperContainer.classList.remove('opacity-zero');
+    }, 200);
 
     // 6. Actualizar detalles si están abiertos
     if (document.body.classList.contains('details-mode')) {
@@ -255,7 +271,7 @@ function updateContent(index) {
     }, 300);
 }
 
-// LOGICA GENERAL (IGUAL)
+// LOGICA GENERAL
 const mainLogo = document.getElementById('main-logo');
 mainLogo.addEventListener('click', () => {
     swiper.slideTo(0);
@@ -545,4 +561,3 @@ musicBtn.addEventListener('click', () => {
     if (isPlaying) { bgMusic.pause(); icon.classList.replace('fa-pause', 'fa-play'); isPlaying = false; }
     else { bgMusic.play(); icon.classList.replace('fa-play', 'fa-pause'); isPlaying = true; }
 });
-document.fonts.ready.then(() => { swiper.update(); swiper.slideTo(0, 0); });

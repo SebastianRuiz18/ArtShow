@@ -12,7 +12,11 @@
 body { background-color: #000; font-family: 'FuturaBookPro', sans-serif; overflow: hidden; height: 100vh; height: 100svh; color: #FFF; }
 .fade-text { transition: opacity 0.3s ease; }
 .menu-text-active, .active-lang { color: rgb(133, 39, 34) !important; opacity: 1; }
+
+/* CLASES UTILITARIAS DE CARGA E IDIOMA */
 .opacity-zero { opacity: 0 !important; transition: opacity 0.2s ease; }
+.loading-state { opacity: 0; pointer-events: none; transition: opacity 1.5s ease; } /* Oculto al inicio */
+.loaded-visible { opacity: 1 !important; pointer-events: auto; } /* Se muestra suave */
 
 /* =========================================
    3. BARRAS DE NAVEGACIÓN
