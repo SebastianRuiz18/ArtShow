@@ -43,6 +43,23 @@ body { background-color: #000; font-family: 'FuturaBookPro', sans-serif; overflo
 .menu-footer-item { flex: 1; text-align: center; padding: 12px 0; font-size: 0.65rem; font-family: 'FuturaBookPro', sans-serif; letter-spacing: 1px; color: #000; border-right: 1px solid #000; text-transform: uppercase; cursor: pointer; }
 .menu-footer-item:last-child { border-right: none; }
 .menu-footer-item:hover { color: rgb(133, 39, 34); background-color: #f5f5f5; }
+.made-by-sliver {
+    display: block;
+    text-align: center;
+    font-family: 'FuturaLightPro', sans-serif;
+    font-size: 0.55rem; /* Muy chiquito y elegante */
+    letter-spacing: 2px;
+    color: #000; /* Gris suave */
+    text-decoration: none;
+    padding: 12px 0;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    border-top: 1px solid #000; /* Una línea divisoria sutil (opcional) */
+}
+
+.made-by-sliver:hover {
+    color: #aaa; /* Se oscurece al pasar el mouse */
+}
 
 /* =========================================
    5. CAPA DE DETALLES
