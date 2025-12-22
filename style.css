@@ -77,9 +77,6 @@ body.details-mode .back-btn:hover { opacity: 1; text-decoration: underline; }
 /* =========================================
    6. OTROS
    ========================================= */
-.story-container { position: fixed; top: 75px; right: 20px; z-index: 900; display: flex; flex-direction: column; align-items: center; gap: 5px; }
-.story-btn { width: 42px; height: 42px; border-radius: 50%; background-color: #FFF; border: 1px solid #000; color: #000; font-size: 1rem; display: flex; justify-content: center; align-items: center; cursor: pointer; }
-.story-text { font-family: 'FuturaLightPro', sans-serif; font-size: 0.55rem; color: #FFF; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
 .lang-container { height: 100%; display: flex; align-items: center; padding: 0 25px; font-family: 'FuturaBookPro', sans-serif; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; }
 .lang-sep { color: #000; margin: 0 5px; }
 .lang-opt { cursor: pointer; color: #000000; transition: color 0.3s ease; }

@@ -210,7 +210,7 @@ function updateLanguage() {
 
     document.getElementById('nav-menu-text').textContent = t.menu;
     document.getElementById('nav-reserve-text').textContent = t.reserve;
-    document.getElementById('story-label').textContent = t.story;
+    // story-label eliminado para evitar errores
     document.getElementById('menu-home-btn').textContent = t.home;
     document.getElementById('menu-contact-btn').textContent = t.contact;
     document.getElementById('back-to-home').textContent = t.back;
@@ -262,7 +262,6 @@ const reserveBtn = document.getElementById('nav-reserve-text');
 if(reserveBtn) {
     reserveBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        // Index 5 es el RSVP según nuestro slidesData
         swiper.slideTo(5);
         openDetailsMode(5);
     });
@@ -557,4 +556,15 @@ let isPlaying = false;
 musicBtn.addEventListener('click', () => {
     if (isPlaying) { bgMusic.pause(); icon.classList.replace('fa-pause', 'fa-play'); isPlaying = false; }
     else { bgMusic.play(); icon.classList.replace('fa-play', 'fa-pause'); isPlaying = true; }
+});
+
+// LOGICA DE VISIBILIDAD (PAUSAR MUSICA AL SALIR)
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        bgMusic.pause();
+    } else {
+        if (isPlaying) {
+            bgMusic.play();
+        }
+    }
 });
