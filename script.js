@@ -37,7 +37,7 @@ const translations = {
         validationMsg: "Please complete the fields marked in red.",
         thankTitle: "THANK YOU!",
         thankMsg: "Your confirmation has been successfully received.",
-        seeYou: "See you on August 8th."
+        seeYou: "See you in September." // ACTUALIZADO
     },
     es: {
         menu: "MENÚ",
@@ -74,14 +74,14 @@ const translations = {
         validationMsg: "Por favor completa los campos marcados en rojo.",
         thankTitle: "¡GRACIAS!",
         thankMsg: "Tu confirmación ha sido recibida con éxito.",
-        seeYou: "Nos vemos el 8 de Agosto."
+        seeYou: "Nos vemos en Septiembre." // ACTUALIZADO
     }
 };
 
 // DATOS DE SECCIONES
 const slidesData = [
     { 
-        img: 'https://i.pinimg.com/1200x/46/f6/3f/46f63fa591dd3799dac141f9a0e9bf66.jpg', 
+        img: 'https://instagram.ftij3-2.fna.fbcdn.net/v/t1.15752-9/598702897_762076099484941_6162032456382384969_n.jpg?_nc_cat=106&ccb=7-5&_nc_sid=0024fc&_nc_ohc=r_fU_26-IeoQ7kNvwFjYk9c&_nc_oc=AdlzyNi6JPDbI3HMIMw0yxsUn83W6BVHe7n6ZE11f0AwzsKfYYVQoGsSIoS53_DyC-jSIrS2PvQS2QMUPpPia8Ft&_nc_zt=23&_nc_ht=instagram.ftij3-2.fna&oh=03_Q7cD4AHrdx-x6T6E-FVGl9Df1iCHSJKM8HiwDmGXsVU_1t3eAg&oe=69703463', 
         subtitle: { en: 'WELCOME', es: 'BIENVENIDOS' }, 
         btnText: { en: 'OUR STORY', es: 'NUESTRA HISTORIA' }, 
         title: { en: 'ALEXIA & JAVAN', es: 'ALEXIA & JAVAN' }, 
@@ -91,27 +91,29 @@ const slidesData = [
         }
     },
     { 
-        img: 'https://i.pinimg.com/1200x/e2/91/fc/e291fcc73f3cdae4763cec3d76677219.jpg', 
+        // --- ACTUALIZADO: CEREMONIA Y FIESTA (Hotel Andana) ---
+        img: 'https://i.pinimg.com/1200x/07/19/d8/0719d8a2091be1d1dc2acf7fe8576687.jpg', 
         subtitle: { en: 'OUR UNION', es: 'NUESTRA UNIÓN' }, 
         btnText: { en: 'INVITATION', es: 'INVITACIÓN' }, 
         title: { en: 'CEREMONY & PARTY', es: 'CEREMONIA & FIESTA' }, 
         detailsContent: {
-            en: `<p><strong>SATURDAY, AUGUST 8TH</strong></p><p>Brooklyn Botanical Garden, NY</p><br><p>Ceremony: 5:00 PM</p><p>Reception: 6:00 PM</p>`,
-            es: `<p><strong>SÁBADO 8 DE AGOSTO</strong></p><p>Brooklyn Botanical Garden, NY</p><br><p>Ceremonia: 5:00 PM</p><p>Recepción: 6:00 PM</p>`
+            en: `<p><strong>SATURDAY, SEPTEMBER 12, 2026</strong></p><p>Hotel Andana</p><p>Valle de Guadalupe, B.C.</p><br><p>Ceremony & Reception</p><p>(Times to be confirmed)</p>`,
+            es: `<p><strong>SÁBADO 12 DE SEPTIEMBRE, 2026</strong></p><p>Hotel Andana</p><p>Valle de Guadalupe, B.C.</p><br><p>Ceremonia y Recepción</p><p>(Horarios por confirmar)</p>`
         }
     },
     { 
-        img: 'https://i.pinimg.com/1200x/5b/84/50/5b8450369dd4b05a0aa04b9bd2dae540.jpg', 
+        // --- ACTUALIZADO: ITINERARIO (Incluye Rompehielo) ---
+        img: 'https://i.pinimg.com/1200x/35/f5/85/35f585356c793224669a8fe751e09d14.jpg', 
         subtitle: { en: 'THE BIG DAY', es: 'EL GRAN DÍA' }, 
         btnText: { en: 'VIEW SCHEDULE', es: 'VER HORARIOS' }, 
         title: { en: 'ITINERARY', es: 'ITINERARIO' }, 
         detailsContent: {
-            en: `<p>4:30 PM - Arrival</p><p>5:00 PM - Ceremony</p><p>7:30 PM - Dinner</p><p>9:00 PM - Party</p>`,
-            es: `<p>4:30 PM - Llegada</p><p>5:00 PM - Ceremonia</p><p>7:30 PM - Cena</p><p>9:00 PM - Fiesta</p>`
+            en: `<p><strong>FRIDAY, SEPT 11</strong></p><p>Icebreaker at Casa Pedro Domecq</p><br><p><strong>SATURDAY, SEPT 12</strong></p><p>Wedding at Hotel Andana</p>`,
+            es: `<p><strong>VIERNES 11 SEPT</strong></p><p>Rompehielo en Casa Pedro Domecq</p><br><p><strong>SÁBADO 12 SEPT</strong></p><p>Boda en Hotel Andana</p>`
         }
     },
     { 
-        img: 'https://i.pinimg.com/1200x/d9/83/b0/d983b09eb2a2c2e92b43b88388d30853.jpg', 
+        img: 'https://i.pinimg.com/736x/14/80/b5/1480b5c46a6669798b3a832a08de7317.jpg', 
         subtitle: { en: 'IMPORTANT DETAILS', es: 'DETALLES IMPORTANTES' }, 
         btnText: { en: 'GUEST GUIDE', es: 'GUÍA DEL INVITADO' }, 
         title: { en: 'INFORMATION', es: 'INFORMACIÓN' }, 
@@ -121,7 +123,7 @@ const slidesData = [
         }
     },
     { 
-        img: 'https://i.pinimg.com/1200x/6b/bf/a3/6bbfa3c0577758f0f9c585ea4a712ebc.jpg', 
+        img: 'https://i.pinimg.com/1200x/7b/2b/0d/7b2b0d6ae68285312a9478f0b776354c.jpg', 
         subtitle: { en: 'A DETAIL', es: 'UN DETALLE' }, 
         btnText: { en: 'VIEW REGISTRY', es: 'VER MESA' }, 
         title: { en: 'REGISTRY', es: 'REGISTRO' }, 
@@ -131,14 +133,14 @@ const slidesData = [
         }
     },
     { 
-        img: 'https://i.pinimg.com/736x/3e/96/2c/3e962c6eefbd3262e9b91c05887ce859.jpg', 
+        img: 'https://i.pinimg.com/1200x/4c/9a/69/4c9a69429e1e94c6b2c20d697a29fd7e.jpg', 
         subtitle: { en: 'RSVP', es: 'CONFIRMA ASISTENCIA' }, 
         btnText: { en: 'RESERVE SPOT', es: 'RESERVAR LUGAR' }, 
         title: { en: 'RSVP', es: 'RSVP' }, 
         isRSVP: true
     },
     { 
-        img: 'https://i.pinimg.com/736x/8a/c2/82/8ac282e8218134d726caa5ce75fc6ee2.jpg', 
+        img: 'https://i.pinimg.com/736x/ad/7c/50/ad7c50872d5053a721029f5017d2e255.jpg', 
         subtitle: { en: 'QUESTIONS?', es: '¿TIENES DUDAS?' }, 
         btnText: { en: 'WRITE US', es: 'ESCRIBIRNOS' }, 
         title: { en: 'CONTACT', es: 'CONTACTO' }, 

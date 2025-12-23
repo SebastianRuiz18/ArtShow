@@ -29,6 +29,20 @@ body { background-color: #000; font-family: 'FuturaBookPro', sans-serif; overflo
 .nav-text, .icon-btn { font-family: 'FuturaBookPro', sans-serif; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: #000; text-decoration: none; background: none; border: none; cursor: pointer; padding: 0 25px; height: 100%; display: flex; align-items: center; transition: color 0.3s ease; }
 .divider { display: block; width: 1px; height: 20px; background-color: #000; }
 .logo { font-family: 'DidotTitlePro', serif; font-size: 1.5rem; letter-spacing: 5px; font-weight: normal; color: #000; white-space: nowrap; cursor: pointer; }
+#main-logo {
+    /* Pila de fuente */
+    font-family: 'FuturaBookPro', sans-serif;
+    
+    /* Configuración de texto */
+    text-transform: uppercase; /* Opcional: Si lo quieres todo en mayúsculas, si no, borra esta línea */
+    letter-spacing: 2px;    /* Espaciado ligero para toque "premium" */
+    color: #000000;         /* Asegura contraste (ajusta si tu header es oscuro) */
+    text-decoration: none;  /* Quita el subrayado de link */
+    white-space: nowrap;    /* Evita que el nombre se parta en dos líneas */
+    
+    /* TAMAÑO RESPONSIVO (Clave para que quepa en celular) */
+    font-size: 1.1rem;      /* Tamaño base para Móvil (pequeño) */
+}
 
 /* =========================================
    4. MENÚ OVERLAY
