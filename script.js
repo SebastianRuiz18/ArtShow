@@ -37,7 +37,7 @@ const translations = {
         validationMsg: "Please complete the fields marked in red.",
         thankTitle: "THANK YOU!",
         thankMsg: "Your confirmation has been successfully received.",
-        seeYou: "See you in September." // ACTUALIZADO
+        seeYou: "See you in September."
     },
     es: {
         menu: "MENÚ",
@@ -74,7 +74,7 @@ const translations = {
         validationMsg: "Por favor completa los campos marcados en rojo.",
         thankTitle: "¡GRACIAS!",
         thankMsg: "Tu confirmación ha sido recibida con éxito.",
-        seeYou: "Nos vemos en Septiembre." // ACTUALIZADO
+        seeYou: "Nos vemos en Septiembre."
     }
 };
 
@@ -91,7 +91,6 @@ const slidesData = [
         }
     },
     { 
-        // --- ACTUALIZADO: CEREMONIA Y FIESTA (Hotel Andana) ---
         img: 'https://i.pinimg.com/1200x/07/19/d8/0719d8a2091be1d1dc2acf7fe8576687.jpg', 
         subtitle: { en: 'OUR UNION', es: 'NUESTRA UNIÓN' }, 
         btnText: { en: 'INVITATION', es: 'INVITACIÓN' }, 
@@ -102,7 +101,6 @@ const slidesData = [
         }
     },
     { 
-        // --- ACTUALIZADO: ITINERARIO (Incluye Rompehielo) ---
         img: 'https://i.pinimg.com/1200x/35/f5/85/35f585356c793224669a8fe751e09d14.jpg', 
         subtitle: { en: 'THE BIG DAY', es: 'EL GRAN DÍA' }, 
         btnText: { en: 'VIEW SCHEDULE', es: 'VER HORARIOS' }, 
@@ -244,10 +242,14 @@ function updateLanguage() {
     }
 }
 
+// --- FUNCIÓN UPDATE CONTENT (ACTUALIZADA PARA BACKGROUND INTELIGENTE) ---
 function updateContent(index) {
     const data = slidesData[index];
     if(!data) return;
-    bgLayer.style.backgroundImage = `url('${data.img}')`;
+    
+    // AHORA USAMOS VARIABLE CSS EN LUGAR DE BACKGROUND DIRECTO
+    bgLayer.style.setProperty('--bg-img', `url('${data.img}')`);
+    
     subtitleEl.style.opacity = '0';
     ctaBtn.style.opacity = '0';
     setTimeout(() => {
@@ -258,6 +260,7 @@ function updateContent(index) {
         ctaBtn.style.opacity = '1';
     }, 300);
 }
+// --------------------------------------------------------------------
 
 // BOTON RESERVE (HEADER)
 const reserveBtn = document.getElementById('nav-reserve-text');

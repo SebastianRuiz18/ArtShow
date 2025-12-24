@@ -41,7 +41,7 @@ body { background-color: #000; font-family: 'FuturaBookPro', sans-serif; overflo
     white-space: nowrap;    /* Evita que el nombre se parta en dos líneas */
     
     /* TAMAÑO RESPONSIVO (Clave para que quepa en celular) */
-    font-size: 1.1rem;      /* Tamaño base para Móvil (pequeño) */
+    font-size: .9rem;      /* Tamaño base para Móvil (pequeño) */
 }
 
 /* =========================================
@@ -106,13 +106,59 @@ body.details-mode .back-btn { opacity: 0.8; pointer-events: auto; }
 body.details-mode .back-btn:hover { opacity: 1; text-decoration: underline; }
 
 /* =========================================
-   6. OTROS
+   6. OTROS (BACKGROUND + EFECTO CINEMA)
    ========================================= */
 .lang-container { height: 100%; display: flex; align-items: center; padding: 0 25px; font-family: 'FuturaBookPro', sans-serif; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; }
 .lang-sep { color: #000; margin: 0 5px; }
 .lang-opt { cursor: pointer; color: #000000; transition: color 0.3s ease; }
 
-.bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; transition: background-image 0.8s ease-in-out; z-index: 1; }
+/* --- NUEVO BACKGROUND INTELIGENTE --- */
+.bg-layer { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 1; 
+    
+    /* Variable para la imagen */
+    --bg-img: url(''); 
+    
+    /* MÓVIL: Cover normal */
+    background-image: var(--bg-img);
+    background-position: center center;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    transition: background-image 0.8s ease-in-out; 
+}
+
+/* DESKTOP: Efecto Cinema (Contain + Blur) */
+@media (min-width: 768px) {
+    .bg-layer {
+        background-size: contain; /* Foto completa sin recorte */
+        background-color: #000; /* Fondo negro */
+    }
+
+    .bg-layer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        
+        /* Misma imagen pero borrosa */
+        background-image: var(--bg-img);
+        background-size: cover;
+        background-position: center center;
+        
+        filter: blur(20px) brightness(0.6);
+        transform: scale(1.1);
+        z-index: -1;
+    }
+}
+/* ------------------------------------- */
+
 .overlay-dark { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.35); z-index: 2; transition: background 0.5s; }
 body.details-mode .overlay-dark { background: rgba(0,0,0,0.6); }
 
