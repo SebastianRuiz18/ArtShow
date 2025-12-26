@@ -207,8 +207,21 @@ function rebuildSwiper(initialIndex = 0) {
     });
 
     swiper = new Swiper(".text-swiper", {
-        loop: false, slidesPerView: "auto", centeredSlides: true, speed: 600, grabCursor: true, initialSlide: initialIndex,
-        mousewheel: true, keyboard: { enabled: true },
+        loop: false, 
+        slidesPerView: "auto", 
+        centeredSlides: true, 
+        speed: 600, 
+        grabCursor: true, 
+        initialSlide: initialIndex,
+        mousewheel: true, 
+        keyboard: { enabled: true },
+        
+        // --- AGREGA ESTAS 3 LÍNEAS MAGICAS ---
+        observer: true, 
+        observeParents: true,
+        resizeObserver: true,
+        // -------------------------------------
+
         breakpoints: { 320: { spaceBetween: 20 }, 768: { spaceBetween: 50 } },
         on: {
             init: function () { updateContent(this.realIndex); },
