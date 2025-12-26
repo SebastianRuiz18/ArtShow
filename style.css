@@ -43,6 +43,20 @@ body { background-color: #000; font-family: 'FuturaBookPro', sans-serif; overflo
     /* TAMAÑO RESPONSIVO (Clave para que quepa en celular) */
     font-size: .9rem;      /* Tamaño base para Móvil (pequeño) */
 }
+/* ESTILO PARA LA SECCIÓN DEL CHEF */
+.chef-container {
+    text-align: center;
+}
+
+.chef-photo {
+    width: 100%;
+    max-width: 250px; /* Tamaño máximo de la foto */
+    height: auto;
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    margin-bottom: 15px;
+    filter: grayscale(20%); /* Filtro sutil para que combine con el estilo */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
 /* =========================================
    4. MENÚ OVERLAY

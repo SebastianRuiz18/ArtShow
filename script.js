@@ -79,6 +79,7 @@ const translations = {
 };
 
 // DATOS DE SECCIONES
+// DATOS DE SECCIONES
 const slidesData = [
     { 
         img: 'https://instagram.ftij3-2.fna.fbcdn.net/v/t1.15752-9/598702897_762076099484941_6162032456382384969_n.jpg?_nc_cat=106&ccb=7-5&_nc_sid=0024fc&_nc_ohc=r_fU_26-IeoQ7kNvwFjYk9c&_nc_oc=AdlzyNi6JPDbI3HMIMw0yxsUn83W6BVHe7n6ZE11f0AwzsKfYYVQoGsSIoS53_DyC-jSIrS2PvQS2QMUPpPia8Ft&_nc_zt=23&_nc_ht=instagram.ftij3-2.fna&oh=03_Q7cD4AHrdx-x6T6E-FVGl9Df1iCHSJKM8HiwDmGXsVU_1t3eAg&oe=69703463', 
@@ -91,13 +92,14 @@ const slidesData = [
         }
     },
     { 
+        // --- ACTUALIZADO: Título Wedding Day + Rompehielo incluído ---
         img: 'https://i.pinimg.com/1200x/07/19/d8/0719d8a2091be1d1dc2acf7fe8576687.jpg', 
         subtitle: { en: 'OUR UNION', es: 'NUESTRA UNIÓN' }, 
         btnText: { en: 'INVITATION', es: 'INVITACIÓN' }, 
-        title: { en: 'CEREMONY & PARTY', es: 'CEREMONIA & FIESTA' }, 
+        title: { en: 'WEDDING DAY', es: 'DÍA DE LA BODA' }, 
         detailsContent: {
-            en: `<p><strong>SATURDAY, SEPTEMBER 12, 2026</strong></p><p>Hotel Andana</p><p>Valle de Guadalupe, B.C.</p><br><p>Ceremony & Reception</p><p>(Times to be confirmed)</p>`,
-            es: `<p><strong>SÁBADO 12 DE SEPTIEMBRE, 2026</strong></p><p>Hotel Andana</p><p>Valle de Guadalupe, B.C.</p><br><p>Ceremonia y Recepción</p><p>(Horarios por confirmar)</p>`
+            en: `<p><strong>FRIDAY, SEPTEMBER 11, 2026</strong></p><p>Icebreaker at Casa Pedro Domecq</p><br><p><strong>SATURDAY, SEPTEMBER 12, 2026</strong></p><p>Hotel Andana</p><p>Valle de Guadalupe, B.C.</p><br><p>Ceremony & Reception</p><p>(Times to be confirmed)</p>`,
+            es: `<p><strong>VIERNES 11 DE SEPTIEMBRE, 2026</strong></p><p>Rompehielo en Casa Pedro Domecq</p><br><p><strong>SÁBADO 12 DE SEPTIEMBRE, 2026</strong></p><p>Hotel Andana</p><p>Valle de Guadalupe, B.C.</p><br><p>Ceremonia y Recepción</p><p>(Horarios por confirmar)</p>`
         }
     },
     { 
@@ -110,14 +112,45 @@ const slidesData = [
             es: `<p><strong>VIERNES 11 SEPT</strong></p><p>Rompehielo en Casa Pedro Domecq</p><br><p><strong>SÁBADO 12 SEPT</strong></p><p>Boda en Hotel Andana</p>`
         }
     },
+    {
+        // --- NUEVA SECCIÓN: CATERING / CHEF ---
+        // Tip: Busca una foto de un platillo elegante o una mesa servida para el fondo
+        img: 'https://i.pinimg.com/736x/ad/7c/50/ad7c50872d5053a721029f5017d2e255.jpg', 
+        subtitle: { en: 'CULINARY EXPERIENCE', es: 'EXPERIENCIA CULINARIA' }, 
+        btnText: { en: 'MEET THE CHEF', es: 'CONOCE AL CHEF' }, 
+        title: { en: 'CATERING', es: 'BANQUETE' }, 
+        detailsContent: {
+            en: `
+            <div class="chef-container">
+                <img src="https://img-sandiegored.buscafs.com/335492/335492_1152x1152.jpg" class="chef-photo" alt="Chef Javier Plascencia">
+                <br><br>
+                <h3>JAVIER PLASCENCIA</h3>
+                <br>
+                <p>We are honored to have the renowned Chef Javier Plascencia leading our culinary experience. Known as the soul of "Baja Med" cuisine, he is a true ambassador of Baja California's flavors.</p>
+                <br>
+                <p>Prepare your senses for an unforgettable dining journey combining fresh local ingredients with Mediterranean techniques under the stars.</p>
+            </div>`,
+            es: `
+            <div class="chef-container">
+                <img src="https://img-sandiegored.buscafs.com/335492/335492_1152x1152.jpg" class="chef-photo" alt="Chef Javier Plascencia">
+                <br><br>
+                <h3>JAVIER PLASCENCIA</h3>
+                <br>
+                <p>Nos sentimos honrados de contar con el reconocido Chef Javier Plascencia a cargo de nuestra experiencia culinaria. Conocido como el alma de la cocina "Baja Med", es un verdadero embajador de los sabores de Baja California.</p>
+                <br>
+                <p>Preparen sus sentidos para un viaje gastronómico inolvidable que combina ingredientes locales frescos con técnicas mediterráneas bajo las estrellas.</p>
+            </div>`
+        }
+    },
     { 
+        // --- ACTUALIZADO: DRESS CODE ---
         img: 'https://i.pinimg.com/736x/14/80/b5/1480b5c46a6669798b3a832a08de7317.jpg', 
         subtitle: { en: 'IMPORTANT DETAILS', es: 'DETALLES IMPORTANTES' }, 
         btnText: { en: 'GUEST GUIDE', es: 'GUÍA DEL INVITADO' }, 
         title: { en: 'INFORMATION', es: 'INFORMACIÓN' }, 
         detailsContent: {
-            en: `<p><strong>DRESS CODE</strong></p><p>Black Tie Optional</p><br><p><strong>CHILDREN</strong></p><p>Adults only event.</p>`,
-            es: `<p><strong>DRESS CODE</strong></p><p>Black Tie Optional</p><br><p><strong>NIÑOS</strong></p><p>Evento solo para adultos.</p>`
+            en: `<p><strong>DRESS CODE</strong></p><p>Black Tie</p><br><p><strong>CHILDREN</strong></p><p>Adults only event.</p>`,
+            es: `<p><strong>CÓDIGO DE VESTIMENTA</strong></p><p>Etiqueta Rigurosa</p><br><p><strong>NIÑOS</strong></p><p>Evento solo para adultos.</p>`
         }
     },
     { 
@@ -138,7 +171,7 @@ const slidesData = [
         isRSVP: true
     },
     { 
-        img: 'https://i.pinimg.com/736x/ad/7c/50/ad7c50872d5053a721029f5017d2e255.jpg', 
+        img: 'https://i.pinimg.com/1200x/4b/5b/ca/4b5bcac80dfb4b6bdf23fdb1d800806e.jpg', 
         subtitle: { en: 'QUESTIONS?', es: '¿TIENES DUDAS?' }, 
         btnText: { en: 'WRITE US', es: 'ESCRIBIRNOS' }, 
         title: { en: 'CONTACT', es: 'CONTACTO' }, 
