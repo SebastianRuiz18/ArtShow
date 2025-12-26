@@ -79,7 +79,6 @@ const translations = {
 };
 
 // DATOS DE SECCIONES
-// DATOS DE SECCIONES
 const slidesData = [
     { 
         img: 'https://instagram.ftij3-2.fna.fbcdn.net/v/t1.15752-9/598702897_762076099484941_6162032456382384969_n.jpg?_nc_cat=106&ccb=7-5&_nc_sid=0024fc&_nc_ohc=r_fU_26-IeoQ7kNvwFjYk9c&_nc_oc=AdlzyNi6JPDbI3HMIMw0yxsUn83W6BVHe7n6ZE11f0AwzsKfYYVQoGsSIoS53_DyC-jSIrS2PvQS2QMUPpPia8Ft&_nc_zt=23&_nc_ht=instagram.ftij3-2.fna&oh=03_Q7cD4AHrdx-x6T6E-FVGl9Df1iCHSJKM8HiwDmGXsVU_1t3eAg&oe=69703463', 
@@ -92,7 +91,6 @@ const slidesData = [
         }
     },
     { 
-        // --- ACTUALIZADO: Título Wedding Day + Rompehielo incluído ---
         img: 'https://i.pinimg.com/1200x/07/19/d8/0719d8a2091be1d1dc2acf7fe8576687.jpg', 
         subtitle: { en: 'OUR UNION', es: 'NUESTRA UNIÓN' }, 
         btnText: { en: 'INVITATION', es: 'INVITACIÓN' }, 
@@ -113,8 +111,7 @@ const slidesData = [
         }
     },
     {
-        // --- NUEVA SECCIÓN: CATERING / CHEF ---
-        // Tip: Busca una foto de un platillo elegante o una mesa servida para el fondo
+        // SECCIÓN CULINARY
         img: 'https://i.pinimg.com/736x/ad/7c/50/ad7c50872d5053a721029f5017d2e255.jpg', 
         subtitle: { en: 'CULINARY EXPERIENCE', es: 'EXPERIENCIA CULINARIA' }, 
         btnText: { en: 'MEET THE CHEF', es: 'CONOCE AL CHEF' }, 
@@ -143,7 +140,6 @@ const slidesData = [
         }
     },
     { 
-        // --- ACTUALIZADO: DRESS CODE ---
         img: 'https://i.pinimg.com/736x/14/80/b5/1480b5c46a6669798b3a832a08de7317.jpg', 
         subtitle: { en: 'IMPORTANT DETAILS', es: 'DETALLES IMPORTANTES' }, 
         btnText: { en: 'GUEST GUIDE', es: 'GUÍA DEL INVITADO' }, 
@@ -191,7 +187,7 @@ const swiperWrapper = document.getElementById('dynamic-swiper-wrapper');
 const mainHero = document.getElementById('main-hero');
 let swiper = null;
 
-// FUNCION RE-CONSTRUIR SWIPER
+// FUNCION RE-CONSTRUIR SWIPER (LÓGICA LIMPIA)
 function rebuildSwiper(initialIndex = 0) {
     if (swiper !== null) {
         swiper.destroy(true, true);
@@ -202,7 +198,8 @@ function rebuildSwiper(initialIndex = 0) {
     slidesData.forEach(slide => {
         const slideDiv = document.createElement('div');
         slideDiv.className = 'swiper-slide';
-        slideDiv.innerHTML = `<h2 class="slide-title">${slide.title[currentLang]}</h2>`;
+        // HTML interno extra para asegurar centrado vertical/horizontal
+        slideDiv.innerHTML = `<div class="slide-inner"><h2 class="slide-title">${slide.title[currentLang]}</h2></div>`;
         swiperWrapper.appendChild(slideDiv);
     });
 
@@ -216,11 +213,12 @@ function rebuildSwiper(initialIndex = 0) {
         mousewheel: true, 
         keyboard: { enabled: true },
         
-        // --- AGREGA ESTAS 3 LÍNEAS MAGICAS ---
+        // CORRECCIÓN PARA CELULARES
+        roundLengths: true, // Evita medios pixeles borrosos
+        
+        // Observers para estabilidad
         observer: true, 
         observeParents: true,
-        resizeObserver: true,
-        // -------------------------------------
 
         breakpoints: { 320: { spaceBetween: 20 }, 768: { spaceBetween: 50 } },
         on: {
@@ -230,20 +228,16 @@ function rebuildSwiper(initialIndex = 0) {
     });
 }
 
-// CARGA INICIAL ANTI-BUG
-// CARGA INICIAL ANTI-BUG (VERSIÓN MEJORADA)
+// CARGA INICIAL ANTI-BUG (ESPERA A FUENTES)
 window.addEventListener('load', () => {
-    // Esperamos a que las fuentes (Futura) estén listas antes de medir
+    // Importante: Esperar a que la fuente esté lista para calcular ancho
     document.fonts.ready.then(() => {
         rebuildSwiper(0);
-        
         setTimeout(() => {
-            // Forzamos una actualización extra por si acaso
-            if(swiper) swiper.update();
-            
             mainHero.classList.remove('loading-state');
             mainHero.classList.add('loaded-visible');
-        }, 150);
+            if(swiper) swiper.update();
+        }, 100);
     });
 });
 
@@ -264,7 +258,6 @@ function updateLanguage() {
 
     document.getElementById('nav-menu-text').textContent = t.menu;
     document.getElementById('nav-reserve-text').textContent = t.reserve;
-    // story-label eliminado para evitar errores
     document.getElementById('menu-home-btn').textContent = t.home;
     document.getElementById('menu-contact-btn').textContent = t.contact;
     document.getElementById('back-to-home').textContent = t.back;
@@ -296,12 +289,11 @@ function updateLanguage() {
     }
 }
 
-// --- FUNCIÓN UPDATE CONTENT (ACTUALIZADA PARA BACKGROUND INTELIGENTE) ---
+// UPDATE CONTENT (Background Variable)
 function updateContent(index) {
     const data = slidesData[index];
     if(!data) return;
     
-    // AHORA USAMOS VARIABLE CSS EN LUGAR DE BACKGROUND DIRECTO
     bgLayer.style.setProperty('--bg-img', `url('${data.img}')`);
     
     subtitleEl.style.opacity = '0';
@@ -314,15 +306,14 @@ function updateContent(index) {
         ctaBtn.style.opacity = '1';
     }, 300);
 }
-// --------------------------------------------------------------------
 
 // BOTON RESERVE (HEADER)
 const reserveBtn = document.getElementById('nav-reserve-text');
 if(reserveBtn) {
     reserveBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        swiper.slideTo(5);
-        openDetailsMode(5);
+        swiper.slideTo(6); 
+        openDetailsMode(6);
     });
 }
 
@@ -366,7 +357,7 @@ menuLinks.forEach(link => {
 });
 menuOverlay.addEventListener('click', (e) => { if (e.target === menuOverlay) toggleMenu(); });
 homeBtn.addEventListener('click', () => { swiper.slideTo(0); toggleMenu(); closeDetailsMode(); });
-contactBtn.addEventListener('click', () => { swiper.slideTo(6); toggleMenu(); closeDetailsMode(); });
+contactBtn.addEventListener('click', () => { swiper.slideTo(7); toggleMenu(); closeDetailsMode(); });
 
 const detailsBar = document.getElementById('details-bar');
 const detailsContentBox = document.getElementById('details-content-box');

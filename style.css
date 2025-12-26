@@ -184,10 +184,67 @@ body.details-mode .overlay-dark { background: rgba(0,0,0,0.6); }
 body.details-mode .middle-wrapper { opacity: 0 !important; transform: translateY(-40%); pointer-events: none; }
 
 .top-subtitle { font-family: 'FuturaLightPro', sans-serif; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #FFF; margin-bottom: 25px; }
-.text-swiper { width: 100%; height: 70px; overflow: visible; }
-.swiper-slide { width: auto !important; display: flex; align-items: center; justify-content: center; padding: 0 20px; opacity: 0.3; transition: all 0.5s ease; transform: scale(0.9); text-align: center; }
-.swiper-slide-active { opacity: 1; transform: scale(1); z-index: 10; }
-.slide-title { font-family: 'FuturaBookPro', sans-serif; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; color: #F4F1E8; white-space: nowrap; font-weight: normal; cursor: grab; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+
+/* ----------------------------------------------------
+   SWIPER STYLES (CORREGIDOS PARA MÓVIL Y DESKTOP)
+---------------------------------------------------- */
+.text-swiper { 
+    width: 100%; 
+    height: 70px; 
+    overflow: visible !important; /* Importante para ver los lados */
+}
+
+.swiper-slide {
+    width: auto !important; /* Deja que el texto mande */
+    height: 100%;
+    
+    /* Flexbox centrado */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    opacity: 0.3;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: scale(0.9);
+    
+    /* Sin márgenes que estorben */
+    margin: 0;
+    padding: 0;
+    cursor: grab;
+    
+    /* Aseguramos que no se rompa */
+    box-sizing: border-box;
+}
+
+.swiper-slide-active { 
+    opacity: 1; 
+    transform: scale(1); 
+    z-index: 10; 
+}
+
+/* Wrapper interno para asegurar centrado del texto */
+.slide-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.slide-title {
+    font-family: 'FuturaBookPro', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #F4F1E8;
+    white-space: nowrap;
+    font-weight: normal;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    margin: 0;
+    text-align: center;
+}
+/* ---------------------------------------------------- */
+
+
 .btn-box { margin-top: 25px; display: inline-block; padding: 12px 30px; background-color: #F4F1E8; color: #000; text-decoration: none; font-family: 'FuturaBookPro', sans-serif; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; transition: opacity 0.3s, transform 0.2s; }
 .btn-box:hover { background-color: #FFF; transform: translateY(-2px); }
 
