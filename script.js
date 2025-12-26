@@ -231,12 +231,20 @@ function rebuildSwiper(initialIndex = 0) {
 }
 
 // CARGA INICIAL ANTI-BUG
+// CARGA INICIAL ANTI-BUG (VERSIÓN MEJORADA)
 window.addEventListener('load', () => {
-    rebuildSwiper(0);
-    setTimeout(() => {
-        mainHero.classList.remove('loading-state');
-        mainHero.classList.add('loaded-visible');
-    }, 100);
+    // Esperamos a que las fuentes (Futura) estén listas antes de medir
+    document.fonts.ready.then(() => {
+        rebuildSwiper(0);
+        
+        setTimeout(() => {
+            // Forzamos una actualización extra por si acaso
+            if(swiper) swiper.update();
+            
+            mainHero.classList.remove('loading-state');
+            mainHero.classList.add('loaded-visible');
+        }, 150);
+    });
 });
 
 // CAMBIO DE IDIOMA
