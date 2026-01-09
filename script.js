@@ -91,7 +91,7 @@ const slidesData = [
         }
     },
     { 
-        img: 'https://i.pinimg.com/1200x/07/19/d8/0719d8a2091be1d1dc2acf7fe8576687.jpg', 
+        img: 'https://i.pinimg.com/736x/b2/8c/df/b28cdfecb97da82a8bd56981fe1f8be1.jpg', 
         subtitle: { en: 'OUR UNION', es: 'NUESTRA UNIÓN' }, 
         btnText: { en: 'INVITATION', es: 'INVITACIÓN' }, 
         title: { en: 'WEDDING DAY', es: 'DÍA DE LA BODA' }, 
@@ -106,13 +106,13 @@ const slidesData = [
         btnText: { en: 'VIEW SCHEDULE', es: 'VER HORARIOS' }, 
         title: { en: 'ITINERARY', es: 'ITINERARIO' }, 
         detailsContent: {
-            en: `<p><strong>FRIDAY, SEPT 11</strong></p><p>Icebreaker at Casa Pedro Domecq</p><br><p><strong>SATURDAY, SEPT 12</strong></p><p>Wedding at Hotel Andana</p>`,
-            es: `<p><strong>VIERNES 11 SEPT</strong></p><p>Rompehielo en Casa Pedro Domecq</p><br><p><strong>SÁBADO 12 SEPT</strong></p><p>Boda en Hotel Andana</p>`
+            en: `<p><strong>FRIDAY, SEPT 11</strong></p><p>Details coming soon</p><br><p><strong>SATURDAY, SEPT 12</strong></p><p>Details coming soon</p>`,
+            es: `<p><strong>VIERNES 11 SEPT</strong></p><p>Detalles próximamente</p><br><p><strong>SÁBADO 12 SEPT</strong></p><p>Detalles próximamente</p>`
         }
     },
     {
         // SECCIÓN CULINARY
-        img: 'https://i.pinimg.com/736x/ad/7c/50/ad7c50872d5053a721029f5017d2e255.jpg', 
+        img: 'https://i.pinimg.com/1200x/27/9d/9c/279d9cab577f601a2f1c7c26a825410b.jpg', 
         subtitle: { en: 'CULINARY EXPERIENCE', es: 'EXPERIENCIA CULINARIA' }, 
         btnText: { en: 'MEET THE CHEF', es: 'CONOCE AL CHEF' }, 
         title: { en: 'CATERING', es: 'BANQUETE' }, 
@@ -150,7 +150,7 @@ const slidesData = [
         }
     },
     { 
-        img: 'https://i.pinimg.com/1200x/7b/2b/0d/7b2b0d6ae68285312a9478f0b776354c.jpg', 
+        img: 'https://i.pinimg.com/1200x/54/bb/56/54bb56f50739e31d3b6286ef54409aa3.jpg', 
         subtitle: { en: 'A DETAIL', es: 'UN DETALLE' }, 
         btnText: { en: 'VIEW REGISTRY', es: 'VER MESA' }, 
         title: { en: 'REGISTRY', es: 'REGISTRO' }, 
