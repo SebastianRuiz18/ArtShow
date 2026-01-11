@@ -135,15 +135,19 @@ body.details-mode .back-btn:hover { opacity: 1; text-decoration: underline; }
     height: 100%; 
     z-index: 1; 
     
-    /* Variable para la imagen */
     --bg-img: url(''); 
     
-    /* MÓVIL: Cover normal */
     background-image: var(--bg-img);
     background-position: center center;
     background-size: cover; 
     background-repeat: no-repeat;
-    transition: background-image 0.8s ease-in-out; 
+    transition: opacity 0.6s ease-in-out;
+}
+
+/* Second layer sits behind for crossfade */
+#bg-layer-next {
+    z-index: 0; /* Behind the main layer */
+    opacity: 0; /* START INVISIBLE - THIS WAS MISSING */
 }
 
 /* DESKTOP: Efecto Cinema (Contain + Blur) */

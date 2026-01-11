@@ -172,14 +172,15 @@ const slidesData = [
         btnText: { en: 'WRITE US', es: 'ESCRIBIRNOS' }, 
         title: { en: 'CONTACT', es: 'CONTACTO' }, 
         detailsContent: {
-            en: `<p>Wedding Planner: Ana (555-123-4567)</p><p>Email: boda@alexiayjavan.com</p>`,
-            es: `<p>Wedding Planner: Ana (555-123-4567)</p><p>Email: boda@alexiayjavan.com</p>`
+            en: `<p>Wedding Planner: Ana (555-123-4567)</p><p>Email: alexiayjavan@gmail.com</p>`,
+            es: `<p>Wedding Planner: Ana (555-123-4567)</p><p>Email: alexiayjavan@gmail.com</p>`
         }
     }
 ];
 
 // DOM & SWIPER
 const bgLayer = document.getElementById('bg-layer');
+const bgLayerNext = document.getElementById('bg-layer-next'); // ADD THIS LINE
 const subtitleEl = document.getElementById('subtitle');
 const ctaBtn = document.getElementById('cta-btn');
 const langOpts = document.querySelectorAll('.lang-opt');
@@ -294,17 +295,30 @@ function updateContent(index) {
     const data = slidesData[index];
     if(!data) return;
     
-    bgLayer.style.setProperty('--bg-img', `url('${data.img}')`);
+    // Set next image on the back layer
+    bgLayerNext.style.setProperty('--bg-img', `url('${data.img}')`);
+    bgLayerNext.style.opacity = '1';
+    
+    // Fade out current image
+    bgLayer.style.opacity = '0';
     
     subtitleEl.style.opacity = '0';
     ctaBtn.style.opacity = '0';
+    
     setTimeout(() => {
+        // Swap: move next image to front layer
+        bgLayer.style.setProperty('--bg-img', `url('${data.img}')`);
+        bgLayer.style.opacity = '1';
+        
+        // Reset back layer
+        bgLayerNext.style.opacity = '0';
+        
         subtitleEl.textContent = data.subtitle[currentLang];
         ctaBtn.textContent = data.btnText[currentLang];
         ctaBtn.setAttribute('href', data.btnLink || '#');
         subtitleEl.style.opacity = '1';
         ctaBtn.style.opacity = '1';
-    }, 300);
+    }, 600); // Match the CSS transition duration
 }
 
 // BOTON RESERVE (HEADER)
