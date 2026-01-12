@@ -91,7 +91,7 @@ const slidesData = [
         }
     },
     { 
-        img: 'https://i.pinimg.com/736x/16/b2/ed/16b2ed2aa341bd2fb0a50aca6919a7b3.jpg', 
+        img: 'https://i.pinimg.com/736x/b2/8c/df/b28cdfecb97da82a8bd56981fe1f8be1.jpg', 
         subtitle: { en: 'OUR UNION', es: 'NUESTRA UNIÓN' }, 
         btnText: { en: 'INVITATION', es: 'INVITACIÓN' }, 
         title: { en: 'WEDDING DAY', es: 'DÍA DE LA BODA' }, 
