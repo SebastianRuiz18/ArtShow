@@ -91,7 +91,7 @@ const slidesData = [
         }
     },
     { 
-        img: 'https://i.pinimg.com/736x/b2/8c/df/b28cdfecb97da82a8bd56981fe1f8be1.jpg', 
+        img: 'https://i.pinimg.com/736x/16/b2/ed/16b2ed2aa341bd2fb0a50aca6919a7b3.jpg', 
         subtitle: { en: 'OUR UNION', es: 'NUESTRA UNIÓN' }, 
         btnText: { en: 'INVITATION', es: 'INVITACIÓN' }, 
         title: { en: 'WEDDING DAY', es: 'DÍA DE LA BODA' }, 
@@ -295,30 +295,25 @@ function updateContent(index) {
     const data = slidesData[index];
     if(!data) return;
     
-    // Set next image on the back layer
-    bgLayerNext.style.setProperty('--bg-img', `url('${data.img}')`);
-    bgLayerNext.style.opacity = '1';
-    
-    // Fade out current image
+    // Fade out rápido
     bgLayer.style.opacity = '0';
     
     subtitleEl.style.opacity = '0';
     ctaBtn.style.opacity = '0';
     
     setTimeout(() => {
-        // Swap: move next image to front layer
+        // Cambiar imagen mientras está invisible
         bgLayer.style.setProperty('--bg-img', `url('${data.img}')`);
-        bgLayer.style.opacity = '1';
         
-        // Reset back layer
-        bgLayerNext.style.opacity = '0';
+        // Fade in inmediato
+        bgLayer.style.opacity = '1';
         
         subtitleEl.textContent = data.subtitle[currentLang];
         ctaBtn.textContent = data.btnText[currentLang];
         ctaBtn.setAttribute('href', data.btnLink || '#');
         subtitleEl.style.opacity = '1';
         ctaBtn.style.opacity = '1';
-    }, 600); // Match the CSS transition duration
+    }, 400); // Mismo tiempo que la transición CSS
 }
 
 // BOTON RESERVE (HEADER)
