@@ -1,15 +1,19 @@
 /* =========================================
    1. TIPOGRAFÍA
    ========================================= */
+/* Usa tus fuentes locales o añade Google Fonts como fallback aquí si no cargan */
 @font-face { font-family: 'DidotTitlePro'; src: url('fonts/Didot Title.woff2') format('woff2'), url('fonts/Didot Title.woff') format('woff'); font-weight: normal; font-style: normal; font-display: swap; }
 @font-face { font-family: 'FuturaBookPro'; src: url('fonts/FuturaCyrillicBook.woff2') format('woff2'), url('fonts/FuturaCyrillicBook.woff') format('woff'); font-weight: normal; font-style: normal; font-display: swap; }
 @font-face { font-family: 'FuturaLightPro'; src: url('fonts/FuturaCyrillicLight.woff2') format('woff2'), url('fonts/FuturaCyrillicLight.woff') format('woff'); font-weight: normal; font-style: normal; font-display: swap; }
+
+/* Fallbacks por si no tienes los archivos locales a la mano */
+body { font-family: 'FuturaBookPro', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 /* =========================================
    2. RESET Y BASE
    ========================================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background-color: #000; font-family: 'FuturaBookPro', sans-serif; overflow: hidden; height: 100vh; height: 100svh; color: #FFF; }
+body { background-color: #000; overflow: hidden; height: 100vh; height: 100svh; color: #FFF; }
 .fade-text { transition: opacity 0.3s ease; }
 .menu-text-active, .active-lang { color: rgb(133, 39, 34) !important; opacity: 1; }
 
@@ -28,34 +32,15 @@ body { background-color: #000; font-family: 'FuturaBookPro', sans-serif; overflo
 .nav-section.center { position: absolute; left: 50%; transform: translateX(-50%); }
 .nav-text, .icon-btn { font-family: 'FuturaBookPro', sans-serif; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: #000; text-decoration: none; background: none; border: none; cursor: pointer; padding: 0 25px; height: 100%; display: flex; align-items: center; transition: color 0.3s ease; }
 .divider { display: block; width: 1px; height: 20px; background-color: #000; }
-.logo { font-family: 'DidotTitlePro', serif; font-size: 1.5rem; letter-spacing: 5px; font-weight: normal; color: #000; white-space: nowrap; cursor: pointer; }
+.logo { font-family: 'DidotTitlePro', 'Times New Roman', serif; font-size: 1.5rem; letter-spacing: 5px; font-weight: normal; color: #000; white-space: nowrap; cursor: pointer; }
 #main-logo {
-    /* Pila de fuente */
     font-family: 'FuturaBookPro', sans-serif;
-    
-    /* Configuración de texto */
-    text-transform: uppercase; /* Opcional: Si lo quieres todo en mayúsculas, si no, borra esta línea */
-    letter-spacing: 2px;    /* Espaciado ligero para toque "premium" */
-    color: #000000;         /* Asegura contraste (ajusta si tu header es oscuro) */
-    text-decoration: none;  /* Quita el subrayado de link */
-    white-space: nowrap;    /* Evita que el nombre se parta en dos líneas */
-    
-    /* TAMAÑO RESPONSIVO (Clave para que quepa en celular) */
-    font-size: .9rem;      /* Tamaño base para Móvil (pequeño) */
-}
-/* ESTILO PARA LA SECCIÓN DEL CHEF */
-.chef-container {
-    text-align: center;
-}
-
-.chef-photo {
-    width: 100%;
-    max-width: 250px; /* Tamaño máximo de la foto */
-    height: auto;
-    border-radius: 4px; /* Bordes ligeramente redondeados */
-    margin-bottom: 15px;
-    filter: grayscale(20%); /* Filtro sutil para que combine con el estilo */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #000000;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: .9rem;
 }
 
 /* =========================================
@@ -71,23 +56,8 @@ body { background-color: #000; font-family: 'FuturaBookPro', sans-serif; overflo
 .menu-footer-item { flex: 1; text-align: center; padding: 12px 0; font-size: 0.65rem; font-family: 'FuturaBookPro', sans-serif; letter-spacing: 1px; color: #000; border-right: 1px solid #000; text-transform: uppercase; cursor: pointer; }
 .menu-footer-item:last-child { border-right: none; }
 .menu-footer-item:hover { color: rgb(133, 39, 34); background-color: #f5f5f5; }
-.made-by-sliver {
-    display: block;
-    text-align: center;
-    font-family: 'FuturaLightPro', sans-serif;
-    font-size: 0.55rem; /* Muy chiquito y elegante */
-    letter-spacing: 2px;
-    color: #000; /* Gris suave */
-    text-decoration: none;
-    padding: 12px 0;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-    border-top: 1px solid #000; /* Una línea divisoria sutil (opcional) */
-}
-
-.made-by-sliver:hover {
-    color: #aaa; /* Se oscurece al pasar el mouse */
-}
+.made-by-sliver { display: block; text-align: center; font-family: 'FuturaLightPro', sans-serif; font-size: 0.55rem; letter-spacing: 2px; color: #000; text-decoration: none; padding: 12px 0; text-transform: uppercase; transition: color 0.3s ease; border-top: 1px solid #000; }
+.made-by-sliver:hover { color: #aaa; }
 
 /* =========================================
    5. CAPA DE DETALLES
@@ -126,134 +96,39 @@ body.details-mode .back-btn:hover { opacity: 1; text-decoration: underline; }
 .lang-sep { color: #000; margin: 0 5px; }
 .lang-opt { cursor: pointer; color: #000000; transition: color 0.3s ease; }
 
-/* --- NUEVO BACKGROUND INTELIGENTE --- */
 .bg-layer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
     --bg-img: url('');
     background-image: var(--bg-img);
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-position: center center; background-size: cover; background-repeat: no-repeat;
     transition: opacity 0.8s ease-out;
-    -webkit-transition: opacity 0.8s ease-out;
-    -moz-transition: opacity 0.8s ease-out;
-    -ms-transition: opacity 0.8s ease-out;
-    -o-transition: opacity 0.8s ease-out;
 }
 
-/* Second layer NO SE USA */
-#bg-layer-next {
-    display: none; /* Lo ocultamos completamente */
-}
-
-/* DESKTOP: Efecto Cinema (Contain + Blur) */
 @media (min-width: 768px) {
-    .bg-layer {
-        background-size: contain;
-        background-color: #000;
-    }
-
-    .bg-layer::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: var(--bg-img);
-        background-size: cover;
-        background-position: center center;
-        filter: blur(20px) brightness(0.6);
-        transform: scale(1.1);
-        z-index: -1;
-        transition: opacity 0.4s ease-out; /* Misma transición */
-    }
+    .bg-layer { background-size: contain; background-color: #000; }
+    .bg-layer::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: var(--bg-img); background-size: cover; background-position: center center; filter: blur(20px) brightness(0.6); transform: scale(1.1); z-index: -1; transition: opacity 0.4s ease-out; }
 }
-/* ------------------------------------- */
 
 .overlay-dark { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.35); z-index: 2; transition: background 0.5s; }
 body.details-mode .overlay-dark { background: rgba(0,0,0,0.6); }
 
-/* WRAPPER CENTRAL */
 .middle-wrapper { position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 100%; z-index: 10; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.5s ease, transform 0.5s ease; pointer-events: none; }
 .middle-wrapper * { pointer-events: auto; }
-
-/* REGLA MAESTRA: Si estamos en detalles, se oculta el carrusel a la fuerza */
 body.details-mode .middle-wrapper { opacity: 0 !important; transform: translateY(-40%); pointer-events: none; }
 
 .top-subtitle { font-family: 'FuturaLightPro', sans-serif; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: #FFF; margin-bottom: 25px; }
 
-/* ----------------------------------------------------
-   SWIPER STYLES (CORREGIDOS PARA MÓVIL Y DESKTOP)
----------------------------------------------------- */
-.text-swiper { 
-    width: 100%; 
-    height: 70px; 
-    overflow: visible !important; /* Importante para ver los lados */
-}
-
-.swiper-slide {
-    width: auto !important; /* Deja que el texto mande */
-    height: 100%;
-    
-    /* Flexbox centrado */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    
-    opacity: 0.3;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    transform: scale(0.9);
-    
-    /* Sin márgenes que estorben */
-    margin: 0;
-    padding: 0;
-    cursor: grab;
-    
-    /* Aseguramos que no se rompa */
-    box-sizing: border-box;
-}
-
-.swiper-slide-active { 
-    opacity: 1; 
-    transform: scale(1); 
-    z-index: 10; 
-}
-
-/* Wrapper interno para asegurar centrado del texto */
-.slide-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.slide-title {
-    font-family: 'FuturaBookPro', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #F4F1E8;
-    white-space: nowrap;
-    font-weight: normal;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    margin: 0;
-    text-align: center;
-}
-/* ---------------------------------------------------- */
-
+/* SWIPER */
+.text-swiper { width: 100%; height: 70px; overflow: visible !important; }
+.swiper-slide { width: auto !important; height: 100%; display: flex !important; align-items: center !important; justify-content: center !important; opacity: 0.3; transition: opacity 0.5s ease, transform 0.5s ease; transform: scale(0.9); margin: 0; padding: 0; cursor: grab; box-sizing: border-box; }
+.swiper-slide-active { opacity: 1; transform: scale(1); z-index: 10; }
+.slide-inner { display: flex; justify-content: center; align-items: center; width: 100%; }
+.slide-title { font-family: 'FuturaBookPro', sans-serif; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; color: #F4F1E8; white-space: nowrap; font-weight: normal; text-shadow: 0 2px 10px rgba(0,0,0,0.3); margin: 0; text-align: center; }
 
 .btn-box { margin-top: 25px; display: inline-block; padding: 12px 30px; background-color: #F4F1E8; color: #000; text-decoration: none; font-family: 'FuturaBookPro', sans-serif; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; transition: opacity 0.3s, transform 0.2s; }
 .btn-box:hover { background-color: #FFF; transform: translateY(-2px); }
 
-/* =========================================
-   7. MEDIA QUERIES (DESKTOP)
-   ========================================= */
+/* MEDIA QUERIES */
 .nav-zone { display: none; }
 @media (min-width: 768px) {
     .nav-zone { display: block; position: fixed; top: 55px; bottom: 55px; width: 50%; z-index: 5; }
@@ -267,23 +142,38 @@ body.details-mode .middle-wrapper { opacity: 0 !important; transform: translateY
 }
 
 /* =========================================
-   8. ESTILOS RSVP FORM
+   7. RSVP FORM & GALLERY CUSTOM
    ========================================= */
 .rsvp-step-container { width: 100%; text-align: left; margin-top: 20px; }
 .rsvp-label { display: block; font-family: 'DidotTitlePro', serif; font-size: 0.9rem; color: #000; margin-bottom: 8px; margin-top: 20px; }
-.rsvp-input { width: 100%; border: none; border-bottom: 1px solid #000; padding: 8px 0; font-family: 'FuturaBookPro', sans-serif; font-size: 1rem; color: #000; outline: none; background: transparent; border-radius: 0; transition: border 0.3s; }
-.rsvp-input:focus { border-bottom: 1px solid rgb(133, 39, 34); }
+.rsvp-input, .rsvp-textarea { width: 100%; border: none; border-bottom: 1px solid #000; padding: 8px 0; font-family: 'FuturaBookPro', sans-serif; font-size: 1rem; color: #000; outline: none; background: transparent; border-radius: 0; transition: border 0.3s; }
+.rsvp-input:focus, .rsvp-textarea:focus { border-bottom: 1px solid rgb(133, 39, 34); }
 .input-error { border-bottom: 1px solid rgb(133, 39, 34) !important; }
-
-.rsvp-textarea { width: 100%; border: none; border-bottom: 1px solid #000; padding: 8px 0; font-family: 'FuturaBookPro', sans-serif; font-size: 1rem; color: #000; outline: none; background: transparent; border-radius: 0; resize: none; height: 40px; }
-.rsvp-textarea:focus { border-bottom: 1px solid rgb(133, 39, 34); }
-
+.rsvp-textarea { resize: none; height: 40px; }
 .rsvp-error { color: rgb(133, 39, 34); font-family: 'FuturaBookPro', sans-serif; font-size: 0.75rem; margin-top: 5px; display: none; }
 .rsvp-btn { width: 100%; background-color: #000; color: #FFF; border: none; padding: 15px; margin-top: 30px; font-family: 'FuturaBookPro', sans-serif; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: background 0.3s; }
 .rsvp-btn:hover { background-color: rgb(133, 39, 34); }
-
 .guest-block { margin-bottom: 30px; border-bottom: 1px dashed #ccc; padding-bottom: 20px; }
 .guest-block:last-child { border-bottom: none; }
 .guest-number { font-family: 'DidotTitlePro', serif; font-size: 0.9rem; color: #666; margin-bottom: 15px; text-transform: uppercase; }
 .radio-group { display: flex; gap: 20px; margin-top: 10px; }
 .radio-label { font-family: 'FuturaBookPro', sans-serif; font-size: 0.9rem; color: #000; display: flex; align-items: center; gap: 5px; cursor: pointer; }
+
+/* ESTILOS PARA LA GALERÍA (ART PREVIEW) */
+.art-preview-item {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+.art-preview-item:last-child { border-bottom: none; }
+.art-img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+    margin-bottom: 15px;
+}
+.art-img:hover { filter: grayscale(0%); }
+.art-meta { text-align: left; }
+.art-title { font-family: 'DidotTitlePro', serif; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+.art-info { font-family: 'FuturaBookPro', sans-serif; font-size: 0.8rem; color: #666; letter-spacing: 1px; }

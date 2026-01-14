@@ -4,183 +4,239 @@ let currentLang = 'en'; // Default English
 const translations = {
     en: {
         menu: "MENU",
-        reserve: "RESERVE",
-        story: "STORY",
+        reserve: "RSVP",
+        bio: "BIOGRAPHY",
         home: "HOME",
         contact: "CONTACT",
         back: "BACK",
         details: "DETAILS",
         close: "CLOSE",
         nextSection: "NEXT SECTION",
-        codePrompt: "Please enter the guest code from your invitation.",
+        codePrompt: "Please enter your private invitation code.",
         codeLabel: "ACCESS CODE",
-        codeError: "Incorrect code. Please try again.",
+        codeError: "Invalid code. Please try again.",
         enterBtn: "ENTER",
         guest: "GUEST",
-        reservedFor: "We have reserved",
-        seats: "seat(s) for you.",
+        reservedFor: "Invitation valid for",
+        seats: "guest(s).",
         nameLabel: "FULL NAME",
-        attendingLabel: "WILL YOU BE ATTENDING?",
+        attendingLabel: "WILL YOU ATTEND?",
         yes: "YES",
         no: "NO",
         emailLabel: "EMAIL",
         phoneLabel: "PHONE",
-        dietLabel: "DIETARY RESTRICTIONS",
+        dietLabel: "ORGANIZATION / NOTES",
         none: "None",
-        messageLabel: "MESSAGE FOR THE COUPLE",
-        songLabel: "MUST-PLAY SONG REQUEST",
-        writeMsg: "Write something nice...",
-        artistSong: "Artist - Song",
-        sendBtn: "SEND CONFIRMATION",
+        messageLabel: "MESSAGE TO ARTIST",
+        songLabel: "HOW DID YOU HEAR ABOUT US?", // Cambiado de canción a pregunta relevante
+        writeMsg: "Write a message...",
+        artistSong: "Gallery, Friend, Social Media...",
+        sendBtn: "CONFIRM ATTENDANCE",
         sending: "SENDING...",
         errorSend: "ERROR SENDING",
-        validationMsg: "Please complete the fields marked in red.",
-        thankTitle: "THANK YOU!",
-        thankMsg: "Your confirmation has been successfully received.",
-        seeYou: "See you in September."
+        validationMsg: "Please complete the required fields.",
+        thankTitle: "CONFIRMED",
+        thankMsg: "Your name has been added to the guest list.",
+        seeYou: "We look forward to seeing you."
     },
     es: {
         menu: "MENÚ",
-        reserve: "RESERVAR",
-        story: "HISTORIA",
-        home: "HOME",
+        reserve: "RSVP",
+        bio: "BIOGRAFÍA",
+        home: "INICIO",
         contact: "CONTACTO",
         back: "VOLVER",
         details: "DETALLES",
         close: "CERRAR",
-        nextSection: "SIGUIENTE SECCION",
-        codePrompt: "Por favor ingresa el código de invitado que viene en tu invitación física.",
+        nextSection: "SIGUIENTE SECCIÓN",
+        codePrompt: "Por favor ingresa tu código de invitación privado.",
         codeLabel: "CÓDIGO DE ACCESO",
-        codeError: "Código incorrecto. Intenta de nuevo.",
+        codeError: "Código inválido. Intenta de nuevo.",
         enterBtn: "ENTRAR",
         guest: "INVITADO",
-        reservedFor: "Hemos reservado",
-        seats: "lugar(es) para ti.",
+        reservedFor: "Invitación válida para",
+        seats: "persona(s).",
         nameLabel: "NOMBRE COMPLETO",
-        attendingLabel: "¿NOS ACOMPAÑAS?",
+        attendingLabel: "¿ASISTIRÁS?",
         yes: "SÍ",
         no: "NO",
         emailLabel: "EMAIL",
         phoneLabel: "TELÉFONO",
-        dietLabel: "RESTRICCIONES ALIMENTICIAS",
+        dietLabel: "ORGANIZACIÓN / NOTAS",
         none: "Ninguna",
-        messageLabel: "MENSAJE PARA LA PAREJA",
-        songLabel: "CANCIÓN QUE NO PUEDE FALTAR",
-        writeMsg: "Escribe algo lindo...",
-        artistSong: "Artista - Canción",
-        sendBtn: "ENVIAR CONFIRMACIÓN",
+        messageLabel: "MENSAJE AL ARTISTA",
+        songLabel: "¿CÓMO TE ENTERASTE?",
+        writeMsg: "Escribe un mensaje...",
+        artistSong: "Galería, Amigo, Redes...",
+        sendBtn: "CONFIRMAR ASISTENCIA",
         sending: "ENVIANDO...",
         errorSend: "ERROR AL ENVIAR",
-        validationMsg: "Por favor completa los campos marcados en rojo.",
-        thankTitle: "¡GRACIAS!",
-        thankMsg: "Tu confirmación ha sido recibida con éxito.",
-        seeYou: "Nos vemos en Septiembre."
+        validationMsg: "Por favor completa los campos requeridos.",
+        thankTitle: "CONFIRMADO",
+        thankMsg: "Tu nombre ha sido añadido a la lista de invitados.",
+        seeYou: "Esperamos verte pronto."
     }
 };
 
-// DATOS DE SECCIONES
+// DATOS DE SECCIONES (Adaptado para Art Show)
 const slidesData = [
     { 
-        img: 'https://instagram.ftij3-2.fna.fbcdn.net/v/t1.15752-9/598702897_762076099484941_6162032456382384969_n.jpg?_nc_cat=106&ccb=7-5&_nc_sid=0024fc&_nc_ohc=r_fU_26-IeoQ7kNvwFjYk9c&_nc_oc=AdlzyNi6JPDbI3HMIMw0yxsUn83W6BVHe7n6ZE11f0AwzsKfYYVQoGsSIoS53_DyC-jSIrS2PvQS2QMUPpPia8Ft&_nc_zt=23&_nc_ht=instagram.ftij3-2.fna&oh=03_Q7cD4AHrdx-x6T6E-FVGl9Df1iCHSJKM8HiwDmGXsVU_1t3eAg&oe=69703463', 
-        subtitle: { en: 'WELCOME', es: 'BIENVENIDOS' }, 
-        btnText: { en: 'OUR STORY', es: 'NUESTRA HISTORIA' }, 
-        title: { en: 'ALEXIA & JAVAN', es: 'ALEXIA & JAVAN' }, 
+        // 0. BIOGRAPHY
+        img: 'https://i.pinimg.com/736x/8c/08/64/8c086456a5bd740cffff127f52b3f5b7.jpg', 
+        subtitle: { en: 'THE ARTIST', es: 'EL ARTISTA' }, 
+        btnText: { en: 'READ BIO', es: 'LEER BIO' }, 
+        title: { en: 'BIOGRAPHY', es: 'BIOGRAFÍA' }, 
         detailsContent: {
-            en: `<p>They say the best loves come when you least expect them. Our story began on an ordinary autumn afternoon, over coffee and nervous laughter that turned into complicity.</p><br><p>Together we have learned that love is not just looking at each other, but looking together in the same direction.</p>`,
-            es: `<p>Dicen que los mejores amores llegan sin avisar. Nuestra historia comenzó una tarde de otoño, entre cafés y risas que se volvieron complicidad.</p><br><p>Juntos hemos aprendido que el amor no es solo mirarse el uno al otro, sino mirar juntos en la misma dirección.</p>`
+            en: `<p>Art is not what you see, but what you make others see.</p><br><p>Born in the chaos of the city and raised by the silence of the mountains, [Artist Name] explores the delicate balance between structure and fluidity. This collection represents a decade of introspection.</p>`,
+            es: `<p>El arte no es lo que ves, sino lo que haces que otros vean.</p><br><p>Nacido en el caos de la ciudad y criado por el silencio de las montañas, [Nombre del Artista] explora el delicado equilibrio entre la estructura y la fluidez. Esta colección representa una década de introspección.</p>`
         }
     },
     { 
-        img: 'https://i.pinimg.com/736x/b2/8c/df/b28cdfecb97da82a8bd56981fe1f8be1.jpg', 
-        subtitle: { en: 'OUR UNION', es: 'NUESTRA UNIÓN' }, 
-        btnText: { en: 'INVITATION', es: 'INVITACIÓN' }, 
-        title: { en: 'WEDDING DAY', es: 'DÍA DE LA BODA' }, 
+        // 1. OPENING NIGHT (Antes Wedding Day)
+        img: 'https://i.pinimg.com/736x/bb/f0/cb/bbf0cb03246cfd8397d81b3b691af22b.jpg', 
+        subtitle: { en: 'THE EVENT', es: 'EL EVENTO' }, 
+        btnText: { en: 'VIEW DETAILS', es: 'VER DETALLES' }, 
+        title: { en: 'OPENING NIGHT', es: 'INAUGURACIÓN' }, 
         detailsContent: {
-            en: `<p><strong>FRIDAY, SEPTEMBER 11, 2026</strong></p><p>Icebreaker at Casa Pedro Domecq</p><br><p><strong>SATURDAY, SEPTEMBER 12, 2026</strong></p><p>Hotel Andana</p><p>Valle de Guadalupe, B.C.</p><br><p>Ceremony & Reception</p><p>(Times to be confirmed)</p>`,
-            es: `<p><strong>VIERNES 11 DE SEPTIEMBRE, 2026</strong></p><p>Rompehielo en Casa Pedro Domecq</p><br><p><strong>SÁBADO 12 DE SEPTIEMBRE, 2026</strong></p><p>Hotel Andana</p><p>Valle de Guadalupe, B.C.</p><br><p>Ceremonia y Recepción</p><p>(Horarios por confirmar)</p>`
+            en: `<p><strong>FRIDAY, OCTOBER 24, 2026</strong></p><p>Private View & Vernissage</p><br><p><strong>LOCATION</strong></p><p>Modern Art Space</p><p>Downtown District</p><br><p>Doors Open: 7:00 PM</p>`,
+            es: `<p><strong>VIERNES 24 DE OCTUBRE, 2026</strong></p><p>Vista Privada y Vernissage</p><br><p><strong>UBICACIÓN</strong></p><p>Espacio de Arte Moderno</p><p>Distrito Centro</p><br><p>Puertas abren: 7:00 PM</p>`
         }
     },
     { 
-        img: 'https://i.pinimg.com/1200x/35/f5/85/35f585356c793224669a8fe751e09d14.jpg', 
-        subtitle: { en: 'THE BIG DAY', es: 'EL GRAN DÍA' }, 
-        btnText: { en: 'VIEW SCHEDULE', es: 'VER HORARIOS' }, 
-        title: { en: 'ITINERARY', es: 'ITINERARIO' }, 
+        // 2. PROGRAM (Antes Itinerary)
+        img: 'https://i.pinimg.com/1200x/68/25/a7/6825a730e084e7c53b54c12cd4c99d98.jpg', 
+        subtitle: { en: 'SCHEDULE', es: 'HORARIO' }, 
+        btnText: { en: 'VIEW PROGRAM', es: 'VER PROGRAMA' }, 
+        title: { en: 'PROGRAM', es: 'PROGRAMA' }, 
         detailsContent: {
-            en: `<p><strong>FRIDAY, SEPT 11</strong></p><p>Details coming soon</p><br><p><strong>SATURDAY, SEPT 12</strong></p><p>Details coming soon</p>`,
-            es: `<p><strong>VIERNES 11 SEPT</strong></p><p>Detalles próximamente</p><br><p><strong>SÁBADO 12 SEPT</strong></p><p>Detalles próximamente</p>`
+            en: `<p><strong>7:00 PM</strong></p><p>Welcome Cocktail</p><br><p><strong>8:00 PM</strong></p><p>Artist Talk & Presentation</p><br><p><strong>9:00 PM</strong></p><p>Gallery Walkthrough</p>`,
+            es: `<p><strong>7:00 PM</strong></p><p>Cóctel de Bienvenida</p><br><p><strong>8:00 PM</strong></p><p>Charla del Artista</p><br><p><strong>9:00 PM</strong></p><p>Recorrido de Galería</p>`
         }
     },
     {
-        // SECCIÓN CULINARY
-        img: 'https://i.pinimg.com/1200x/27/9d/9c/279d9cab577f601a2f1c7c26a825410b.jpg', 
-        subtitle: { en: 'CULINARY EXPERIENCE', es: 'EXPERIENCIA CULINARIA' }, 
-        btnText: { en: 'MEET THE CHEF', es: 'CONOCE AL CHEF' }, 
-        title: { en: 'CATERING', es: 'BANQUETE' }, 
+        // 3. THE SPACE (Antes Culinary)
+        img: 'https://i.pinimg.com/736x/74/df/6d/74df6d5e4ec7cb88ef7a6098c6440d5f.jpg', 
+        subtitle: { en: 'ATMOSPHERE', es: 'ATMÓSFERA' }, 
+        btnText: { en: 'THE SPACE', es: 'EL ESPACIO' }, 
+        title: { en: 'THE SPACE', es: 'EL ESPACIO' }, 
         detailsContent: {
             en: `
             <div class="chef-container">
-                <img src="https://img-sandiegored.buscafs.com/335492/335492_1152x1152.jpg" class="chef-photo" alt="Chef Javier Plascencia">
+                <img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?q=80&w=1000&auto=format&fit=crop" class="chef-photo" alt="Gallery Interior">
                 <br><br>
-                <h3>JAVIER PLASCENCIA</h3>
+                <h3>ARCHITECTURAL DIALOGUE</h3>
                 <br>
-                <p>We are honored to have the renowned Chef Javier Plascencia leading our culinary experience. Known as the soul of "Baja Med" cuisine, he is a true ambassador of Baja California's flavors.</p>
+                <p>The exhibition takes place in a renovated industrial warehouse, allowing the raw concrete walls to contrast with the delicate nature of the artwork.</p>
                 <br>
-                <p>Prepare your senses for an unforgettable dining journey combining fresh local ingredients with Mediterranean techniques under the stars.</p>
+                <p>Curated lighting design emphasizes the texture and depth of each piece.</p>
             </div>`,
             es: `
             <div class="chef-container">
-                <img src="https://img-sandiegored.buscafs.com/335492/335492_1152x1152.jpg" class="chef-photo" alt="Chef Javier Plascencia">
+                <img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?q=80&w=1000&auto=format&fit=crop" class="chef-photo" alt="Gallery Interior">
                 <br><br>
-                <h3>JAVIER PLASCENCIA</h3>
+                <h3>DIÁLOGO ARQUITECTÓNICO</h3>
                 <br>
-                <p>Nos sentimos honrados de contar con el reconocido Chef Javier Plascencia a cargo de nuestra experiencia culinaria. Conocido como el alma de la cocina "Baja Med", es un verdadero embajador de los sabores de Baja California.</p>
+                <p>La exhibición toma lugar en un almacén industrial renovado, permitiendo que las paredes de concreto crudo contrasten con la naturaleza delicada de la obra.</p>
                 <br>
-                <p>Preparen sus sentidos para un viaje gastronómico inolvidable que combina ingredientes locales frescos con técnicas mediterráneas bajo las estrellas.</p>
+                <p>Un diseño de iluminación curado enfatiza la textura y profundidad de cada pieza.</p>
             </div>`
         }
     },
     { 
-        img: 'https://i.pinimg.com/736x/14/80/b5/1480b5c46a6669798b3a832a08de7317.jpg', 
-        subtitle: { en: 'IMPORTANT DETAILS', es: 'DETALLES IMPORTANTES' }, 
-        btnText: { en: 'GUEST GUIDE', es: 'GUÍA DEL INVITADO' }, 
-        title: { en: 'INFORMATION', es: 'INFORMACIÓN' }, 
+        // 4. VISITOR INFO (Antes Information)
+        img: 'https://i.pinimg.com/1200x/85/7f/10/857f10e54449db8e69b8d985e858d4a6.jpg', 
+        subtitle: { en: 'ESSENTIALS', es: 'ESENCIALES' }, 
+        btnText: { en: 'GUEST GUIDE', es: 'GUÍA VISITA' }, 
+        title: { en: 'VISITOR INFO', es: 'INFO VISITA' }, 
         detailsContent: {
-            en: `<p><strong>DRESS CODE</strong></p><p>Black Tie</p><br><p><strong>CHILDREN</strong></p><p>Adults only event.</p>`,
-            es: `<p><strong>CÓDIGO DE VESTIMENTA</strong></p><p>Etiqueta Rigurosa</p><br><p><strong>NIÑOS</strong></p><p>Evento solo para adultos.</p>`
+            en: `<p><strong>DRESS CODE</strong></p><p>Creative Cocktail / Avant-Garde</p><br><p><strong>PHOTOGRAPHY</strong></p><p>Allowed without flash.</p>`,
+            es: `<p><strong>CÓDIGO DE VESTIMENTA</strong></p><p>Cóctel Creativo / Avant-Garde</p><br><p><strong>FOTOGRAFÍA</strong></p><p>Permitida sin flash.</p>`
         }
     },
     { 
-        img: 'https://i.pinimg.com/1200x/54/bb/56/54bb56f50739e31d3b6286ef54409aa3.jpg', 
-        subtitle: { en: 'A DETAIL', es: 'UN DETALLE' }, 
-        btnText: { en: 'VIEW REGISTRY', es: 'VER MESA' }, 
-        title: { en: 'REGISTRY', es: 'REGISTRO' }, 
+        // 5. GALLERY PREVIEW (Antes Registry)
+        img: 'https://i.pinimg.com/1200x/01/63/67/016367a3b12d33247d26a9274b72d158.jpg', 
+        subtitle: { en: 'PREVIEW', es: 'PREVISUALIZACIÓN' }, 
+        btnText: { en: 'VIEW GALLERY', es: 'VER GALERÍA' }, 
+        title: { en: 'GALLERY', es: 'GALERÍA' }, 
         detailsContent: {
-            en: `<p>Your presence is our present.</p><br><p><a href="#">Liverpool: 123456</a></p><p><a href="#">Amazon Registry</a></p>`,
-            es: `<p>Su presencia es nuestro regalo.</p><br><p><a href="#">Liverpool: 123456</a></p><p><a href="#">Amazon Registry</a></p>`
+            en: `
+            <p style="margin-bottom:30px;">A selection of works available at the show.</p>
+            
+            <div class="art-preview-item">
+                <img src="https://i.pinimg.com/736x/7e/45/82/7e458294342182d2b3886a488dfd271a.jpg" class="art-img">
+                <div class="art-meta">
+                    <h4 class="art-title">"Silence No. 1"</h4>
+                    <p class="art-info">Oil on Canvas, 2025. 120x80cm</p>
+                </div>
+            </div>
+
+            <div class="art-preview-item">
+                <img src="https://i.pinimg.com/736x/ad/cd/74/adcd745bd9aaf60b3bce8e90c1c4ca4a.jpg" class="art-img">
+                <div class="art-meta">
+                    <h4 class="art-title">"Urban Decay"</h4>
+                    <p class="art-info">Mixed Media, 2024. 100x100cm</p>
+                </div>
+            </div>
+            
+             <div class="art-preview-item">
+                <img src="https://i.pinimg.com/736x/8e/f3/13/8ef3133baca6fbee7c34159b830a4096.jpg" class="art-img">
+                <div class="art-meta">
+                    <h4 class="art-title">"The Void"</h4>
+                    <p class="art-info">Acrylic & Charcoal, 2025. 50x70cm</p>
+                </div>
+            </div>`,
+            es: `
+            <p style="margin-bottom:30px;">Una selección de obras disponibles.</p>
+            
+            <div class="art-preview-item">
+                <img src="https://i.pinimg.com/736x/7e/45/82/7e458294342182d2b3886a488dfd271a.jpg" class="art-img">
+                <div class="art-meta">
+                    <h4 class="art-title">"Silencio No. 1"</h4>
+                    <p class="art-info">Óleo sobre lienzo, 2025. 120x80cm</p>
+                </div>
+            </div>
+
+            <div class="art-preview-item">
+                <img src="https://i.pinimg.com/736x/ad/cd/74/adcd745bd9aaf60b3bce8e90c1c4ca4a.jpg" class="art-img">
+                <div class="art-meta">
+                    <h4 class="art-title">"Decadencia Urbana"</h4>
+                    <p class="art-info">Técnica Mixta, 2024. 100x100cm</p>
+                </div>
+            </div>
+
+             <div class="art-preview-item">
+                <img src="https://i.pinimg.com/736x/8e/f3/13/8ef3133baca6fbee7c34159b830a4096.jpg" class="art-img">
+                <div class="art-meta">
+                    <h4 class="art-title">"El Vacío"</h4>
+                    <p class="art-info">Acrílico y Carbón, 2025. 50x70cm</p>
+                </div>
+            </div>`
         }
     },
     { 
-        img: 'https://i.pinimg.com/1200x/4c/9a/69/4c9a69429e1e94c6b2c20d697a29fd7e.jpg', 
-        subtitle: { en: 'RSVP', es: 'CONFIRMA ASISTENCIA' }, 
-        btnText: { en: 'RESERVE SPOT', es: 'RESERVAR LUGAR' }, 
+        // 6. RSVP
+        img: 'https://i.pinimg.com/1200x/60/d5/c8/60d5c86cd090dcb7b0001d05961e6fa0.jpg', 
+        subtitle: { en: 'GUEST LIST', es: 'LISTA DE INVITADOS' }, 
+        btnText: { en: 'CONFIRM ATTENDANCE', es: 'CONFIRMAR ASISTENCIA' }, 
         title: { en: 'RSVP', es: 'RSVP' }, 
         isRSVP: true
     },
     { 
-        img: 'https://i.pinimg.com/1200x/4b/5b/ca/4b5bcac80dfb4b6bdf23fdb1d800806e.jpg', 
-        subtitle: { en: 'QUESTIONS?', es: '¿TIENES DUDAS?' }, 
-        btnText: { en: 'WRITE US', es: 'ESCRIBIRNOS' }, 
+        // 7. CONTACT
+        img: 'https://i.pinimg.com/736x/a3/4d/44/a34d4412a8f8b8aee5005ef94a52ae80.jpg', 
+        subtitle: { en: 'INQUIRIES', es: 'CONSULTAS' }, 
+        btnText: { en: 'CONTACT US', es: 'CONTACTAR' }, 
         title: { en: 'CONTACT', es: 'CONTACTO' }, 
         detailsContent: {
-            en: `<p>Wedding Planner: Ana (555-123-4567)</p><p>Email: alexiayjavan@gmail.com</p>`,
-            es: `<p>Wedding Planner: Ana (555-123-4567)</p><p>Email: alexiayjavan@gmail.com</p>`
+            en: `<p>Gallery Management: (555-000-0000)</p><p>Email: art@gallery.com</p>`,
+            es: `<p>Manejo de Galería: (555-000-0000)</p><p>Email: art@gallery.com</p>`
         }
     }
 ];
 
 // DOM & SWIPER
 const bgLayer = document.getElementById('bg-layer');
-const bgLayerNext = document.getElementById('bg-layer-next'); // ADD THIS LINE
 const subtitleEl = document.getElementById('subtitle');
 const ctaBtn = document.getElementById('cta-btn');
 const langOpts = document.querySelectorAll('.lang-opt');
@@ -188,7 +244,7 @@ const swiperWrapper = document.getElementById('dynamic-swiper-wrapper');
 const mainHero = document.getElementById('main-hero');
 let swiper = null;
 
-// FUNCION RE-CONSTRUIR SWIPER (LÓGICA LIMPIA)
+// FUNCION RE-CONSTRUIR SWIPER
 function rebuildSwiper(initialIndex = 0) {
     if (swiper !== null) {
         swiper.destroy(true, true);
@@ -199,7 +255,6 @@ function rebuildSwiper(initialIndex = 0) {
     slidesData.forEach(slide => {
         const slideDiv = document.createElement('div');
         slideDiv.className = 'swiper-slide';
-        // HTML interno extra para asegurar centrado vertical/horizontal
         slideDiv.innerHTML = `<div class="slide-inner"><h2 class="slide-title">${slide.title[currentLang]}</h2></div>`;
         swiperWrapper.appendChild(slideDiv);
     });
@@ -213,11 +268,7 @@ function rebuildSwiper(initialIndex = 0) {
         initialSlide: initialIndex,
         mousewheel: true, 
         keyboard: { enabled: true },
-        
-        // CORRECCIÓN PARA CELULARES
-        roundLengths: true, // Evita medios pixeles borrosos
-        
-        // Observers para estabilidad
+        roundLengths: true, 
         observer: true, 
         observeParents: true,
 
@@ -229,9 +280,8 @@ function rebuildSwiper(initialIndex = 0) {
     });
 }
 
-// CARGA INICIAL ANTI-BUG (ESPERA A FUENTES)
+// CARGA INICIAL
 window.addEventListener('load', () => {
-    // Importante: Esperar a que la fuente esté lista para calcular ancho
     document.fonts.ready.then(() => {
         rebuildSwiper(0);
         setTimeout(() => {
@@ -290,22 +340,17 @@ function updateLanguage() {
     }
 }
 
-// UPDATE CONTENT (Background Variable)
+// UPDATE CONTENT
 function updateContent(index) {
     const data = slidesData[index];
     if(!data) return;
     
-    // Fade out rápido
     bgLayer.style.opacity = '0';
-    
     subtitleEl.style.opacity = '0';
     ctaBtn.style.opacity = '0';
     
     setTimeout(() => {
-        // Cambiar imagen mientras está invisible
         bgLayer.style.setProperty('--bg-img', `url('${data.img}')`);
-        
-        // Fade in inmediato
         bgLayer.style.opacity = '1';
         
         subtitleEl.textContent = data.subtitle[currentLang];
@@ -313,7 +358,7 @@ function updateContent(index) {
         ctaBtn.setAttribute('href', data.btnLink || '#');
         subtitleEl.style.opacity = '1';
         ctaBtn.style.opacity = '1';
-    }, 400); // Mismo tiempo que la transición CSS
+    }, 400); 
 }
 
 // BOTON RESERVE (HEADER)
@@ -326,7 +371,7 @@ if(reserveBtn) {
     });
 }
 
-// LOGICA GENERAL
+// MENU LOGIC
 const mainLogo = document.getElementById('main-logo');
 mainLogo.addEventListener('click', () => {
     swiper.slideTo(0);
@@ -368,6 +413,7 @@ menuOverlay.addEventListener('click', (e) => { if (e.target === menuOverlay) tog
 homeBtn.addEventListener('click', () => { swiper.slideTo(0); toggleMenu(); closeDetailsMode(); });
 contactBtn.addEventListener('click', () => { swiper.slideTo(7); toggleMenu(); closeDetailsMode(); });
 
+// DETAILS LOGIC
 const detailsBar = document.getElementById('details-bar');
 const detailsContentBox = document.getElementById('details-content-box');
 const detailBarTitle = document.getElementById('detail-bar-title');
@@ -400,7 +446,7 @@ function openDetailsMode(index) {
             <div id="rsvp-login-view" class="rsvp-step-container">
                 <p>${t.codePrompt}</p>
                 <label class="rsvp-label">${t.codeLabel}</label>
-                <input type="text" id="rsvp-code-input" class="rsvp-input" placeholder="Ej. BODA2">
+                <input type="text" id="rsvp-code-input" class="rsvp-input" placeholder="Ej. ART1">
                 <div id="rsvp-error-msg" class="rsvp-error">${t.codeError}</div>
                 <button id="rsvp-check-btn" class="rsvp-btn">${t.enterBtn}</button>
             </div>
@@ -430,10 +476,10 @@ function initRSVPLogin() {
             checkBtn.addEventListener('click', () => {
                 const code = codeInput.value.toUpperCase().trim();
                 let guests = 0;
-                if (code === 'BODA1') guests = 1;
-                else if (code === 'BODA2') guests = 2;
-                else if (code === 'BODA3') guests = 3;
-                else if (code === 'FAMILIA4') guests = 4;
+                // CÓDIGOS ACTUALIZADOS PARA ARTE
+                if (code === 'GUEST1' || code === 'ART1') guests = 1;
+                else if (code === 'GUEST2' || code === 'ART2' || code === 'VIP2') guests = 2;
+                else if (code === 'VIP4') guests = 4;
 
                 if (guests > 0) {
                     generateRSVPForm(guests);
@@ -490,7 +536,7 @@ function generateRSVPForm(count) {
         document.getElementById('rsvp-submit-final').addEventListener('click', (e) => {
             const btn = e.target;
             let isValid = true;
-            let formData = { _subject: `New RSVP (${currentLang.toUpperCase()})`, _captcha: "false" };
+            let formData = { _subject: `Art Show RSVP (${currentLang.toUpperCase()})`, _captcha: "false" };
 
             for (let i = 1; i <= count; i++) {
                 const nameInput = document.getElementById(`name_${i}`);
@@ -520,7 +566,7 @@ function generateRSVPForm(count) {
 
                 formData[`Guest_${i}_Name`] = nameInput.value;
                 formData[`Guest_${i}_Attending`] = asistenciaVal;
-                formData[`Guest_${i}_Diet`] = document.getElementById(`diet_${i}`).value || "None";
+                formData[`Guest_${i}_Notes`] = document.getElementById(`diet_${i}`).value || "None";
             }
 
             const email1 = document.getElementById('email_1') ? document.getElementById('email_1').value : '';
@@ -530,8 +576,8 @@ function generateRSVPForm(count) {
 
             if(email1) formData["Contact_Email"] = email1;
             if(tel1) formData["Contact_Phone"] = tel1;
-            if(message) formData["Message_For_Couple"] = message;
-            if(song) formData["Song_Request"] = song;
+            if(message) formData["Message"] = message;
+            if(song) formData["Reference"] = song;
 
             const warningMsg = document.getElementById('form-warning');
             
@@ -540,7 +586,8 @@ function generateRSVPForm(count) {
                 btn.textContent = t.sending;
                 btn.disabled = true;
 
-                fetch("https://formsubmit.co/ajax/madebyslivermx@gmail.com", {
+                // CAMBIA EL CORREO AQUI
+                fetch("https://formsubmit.co/ajax/TU_CORREO@GMAIL.COM", {
                     method: "POST",
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                     body: JSON.stringify(formData)
@@ -617,13 +664,7 @@ musicBtn.addEventListener('click', () => {
     else { bgMusic.play(); icon.classList.replace('fa-play', 'fa-pause'); isPlaying = true; }
 });
 
-// LOGICA DE VISIBILIDAD (PAUSAR MUSICA AL SALIR)
 document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        bgMusic.pause();
-    } else {
-        if (isPlaying) {
-            bgMusic.play();
-        }
-    }
+    if (document.hidden) { bgMusic.pause(); } 
+    else { if (isPlaying) { bgMusic.play(); } }
 });
