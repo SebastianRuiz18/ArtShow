@@ -122,7 +122,7 @@ const slidesData = [
         detailsContent: {
             en: `
             <div class="chef-container">
-                <img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?q=80&w=1000&auto=format&fit=crop" class="chef-photo" alt="Gallery Interior">
+                <img src="https://i.pinimg.com/1200x/47/67/da/4767daefa134ab8eda5b16144aeccd3f.jpg" class="chef-photo" alt="Gallery Interior">
                 <br><br>
                 <h3>ARCHITECTURAL DIALOGUE</h3>
                 <br>
@@ -132,7 +132,7 @@ const slidesData = [
             </div>`,
             es: `
             <div class="chef-container">
-                <img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?q=80&w=1000&auto=format&fit=crop" class="chef-photo" alt="Gallery Interior">
+                <img src="https://i.pinimg.com/1200x/47/67/da/4767daefa134ab8eda5b16144aeccd3f.jpg" class="chef-photo" alt="Gallery Interior">
                 <br><br>
                 <h3>DIÁLOGO ARQUITECTÓNICO</h3>
                 <br>

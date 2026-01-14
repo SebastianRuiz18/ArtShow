@@ -84,6 +84,17 @@ body.details-mode .details-container { opacity: 1; transform: translateY(0); }
 .story-heading { font-family: 'DidotTitlePro', serif; font-size: 1.5rem; letter-spacing: 3px; margin-bottom: 20px; font-weight: normal; text-transform: uppercase; color: #000; text-shadow: none; }
 #detail-body-text, #detail-body-text p { color: #000 !important; font-family: 'DidotTitlePro', serif; font-size: 1.1rem; line-height: 1.6; font-weight: normal; text-shadow: none; text-transform: none; }
 #detail-body-text a { color: #000; text-decoration: underline; }
+/* Agrega esto en style.css */
+
+#detail-body-text img {
+    max-width: 100%;      /* Nunca será más ancha que la caja de texto */
+    width: 100%;          /* Ocupa todo el ancho disponible si es posible */
+    height: auto;         /* Mantiene la proporción (no se aplasta) */
+    display: block;       /* Evita espacios extra abajo */
+    margin: 20px auto;    /* La centra y le da aire arriba y abajo */
+    border-radius: 4px;   /* Un borde sutil para que se vea elegante */
+    object-fit: cover;    /* Asegura que rellene bien el espacio */
+}
 
 .back-btn { margin-top: 15px; background: none; border: none; color: #FFF; font-family: 'FuturaBookPro', sans-serif; font-size: 0.7rem; letter-spacing: 2px; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.5s; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
 body.details-mode .back-btn { opacity: 0.8; pointer-events: auto; }
